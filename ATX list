@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+@SuppressWarnings("ALL")
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double normativ1 = 9.43;
+        double normativ2 = 8.34;
+        double normativ3 = 10.25;
+        double normativ = normativ1;
+        System.out.println("Введите пробег на начало смены");
+        int probeg1 = scan.nextInt();
+        System.out.println("Введите пробег на конец смены");
+        int probeg2 = scan.nextInt();
+        if (probeg1 > probeg2) {
+            System.out.println("Error!");
+            return;
+        }
+        
+            if (probeg1 == 0 && probeg2 == 0) {
+                // Prompt the user to enter the distance
+                System.out.println("Введите километраж отрезка");
+                int distance = scan.nextInt();
+                System.out.println("Введите остаток топлива в баке на начало отрезка");
+                double toplivo1 = scan.nextDouble();
+                System.out.println("Введите где ехали (1) - город, (2) - трасса, (3) - город миллионник");
+                int trassa = scan.nextInt();
+                int  t = 1;
+                int  g = 2;
+                int  m = 3;
+                if (trassa == t) {
+                    normativ = normativ1;
+                }
+                if (trassa == g) {
+                    normativ = normativ2;
+                }
+                if (trassa == m) {
+                    normativ = normativ3;
+                }
+                int zaden = distance;
+                double rashod = zaden * normativ / 100.00;
+                double ostatok = toplivo1 - rashod;
+                System.out.println("Остаток в баке на конец отрезка " + ostatok);
+                return;
+                }
+
+        System.out.println("Введите остаток топлива в баке на начало смены");
+        double toplivo1 = scan.nextDouble();
+        System.out.println("Введите где ехали (1) - город, (2) - трасса, (3) - город миллионник");
+        int trassa = scan.nextInt();
+        int  t = 1;
+        int  g = 2;
+        int  m = 3;
+        if (trassa == t) {
+            normativ = normativ1;
+        }
+        if (trassa == g) {
+            normativ = normativ2;
+        }
+        if (trassa == m) {
+            normativ = normativ3;
+        }
+
+        int zaden = probeg2 - probeg1;
+        double rashod = zaden * normativ / 100.00;
+        double ostatok = toplivo1 - rashod;
+
+
+        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
+            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
+            System.out.println("Остаток в баке на конец смены " + ostatok);
+
+    }
+}
